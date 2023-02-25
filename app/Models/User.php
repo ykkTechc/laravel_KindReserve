@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Larabel\Models\Event;
 
 class User extends Authenticatable
 {
@@ -29,6 +30,12 @@ class User extends Authenticatable
         'password',
         'role'
     ];
+
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'reservations')
+            ->withPivot(['id', 'number_of_people', 'canceled_date']);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

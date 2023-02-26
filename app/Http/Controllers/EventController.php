@@ -26,9 +26,6 @@ class EventController extends Controller
         ->whereNull('canceled_date')
         ->groupBy('event_id');
 
-        // eventsテーブルの情報を持ってくる。
-        // 今日以降のイベントを取得
-        // 外部結合でNULLが紐付いた全てのデータを取ってきている
         $events = DB::table('events')
         ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
             $join->on('events.id', '=', 'reservedPeople.event_id');
@@ -37,7 +34,6 @@ class EventController extends Controller
         ->orderBy('start_date', 'asc')
         ->paginate(10);
        
-
         return view('manager.events.index',
         compact('events'));
     }

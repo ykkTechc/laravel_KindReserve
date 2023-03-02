@@ -6,7 +6,7 @@ flatpickr("#event_date", {
     minDate: "today",
     maxDate: new Date().fp_incr(30), // 30 days from now
 });
-
+// 第一引数にID
 flatpickr("#calendar", {
     locale: Japanese,
     // minDate: "today",

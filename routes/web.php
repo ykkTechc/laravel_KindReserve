@@ -35,6 +35,7 @@ Route::prefix('manager')
 ->group(function () {
     Route::get('events/past', [EventController::class, 'past'])->name('events');
     Route::resource('events', EventController::class); 
+    Route::get('/sample', function () { return view('sample/text'); });
     });
 
 

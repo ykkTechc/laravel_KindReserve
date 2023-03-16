@@ -61,6 +61,9 @@
                        <x-jet-button class="ml-4">
                                編集する
                        </x-jet-button>
+                       <x-jet-button formaction="{{ route('events.destroy', ['event' => $event->id]) }}" data-id="{{ $event->id }}" onclick="cancelPost(this)" class="ml-4 bg-black text-white py-2 px-4">
+                                削除する
+                       </x-jet-button>
                        @endif
                     </div>
                  </form>
@@ -97,4 +100,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function cancelPost(e) {
+                'use strict';
+                if (confirm('本当に削除しても宜しいですか？')) {
+                    document.getElementById('cancel_' + e.dataset.id).submit();
+                }
+            }
+    </script>
 </x-app-layout>

@@ -31,13 +31,13 @@
 
                        <div class="md:flex justify-between">
                        <div class="mt-4">
-                           <x-jet-label for="event_date" value="イベント日付" />
+                           <x-jet-label for="event" value="イベント日付" />
                            <x-jet-input id="event_date" class="block mt-1 w-full" type="text" name="event_date" required />
                        </div>
      
                        <div class="mt-4">
                            <x-jet-label for="start_time" value="開始時間" />
-                           <x-jet-input id="start_time" class="block mt-1 w-full" type="text" name="start_time" required />
+                           <x-jet-input id="start" class="block mt-1 w-full" type="text" name="start_time" required />
                        </div>
                        
                        <div class="mt-4">
